@@ -56,7 +56,7 @@
         <div class="publication-links">
           <a class="resource-button" href="https://arxiv.org/pdf/2610.36545" target="_blank" rel="noopener noreferrer" aria-label="Read the FrameForge paper on arXiv (PDF)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8zM14 3v5h5M8 12h8M8 16h6"/></svg>Paper <span aria-hidden="true">↗</span></a>
           <a class="resource-button primary" href="https://github.com/FrameX-AI/FrameForge" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 8-4 4 4 4m8-8 4 4-4 4m-3-11-2 14"/></svg>Code <span aria-hidden="true">↗</span></a>
-          <a class="resource-button" href="https://huggingface.co/lyneeeeeeeee/FrameForge" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5"/></svg>Model weights <span aria-hidden="true">↗</span></a>
+          <a class="resource-button" href="https://huggingface.co/FrameX-AI/FrameForge" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5"/></svg>Model weights <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
@@ -134,7 +134,7 @@ hf download Qwen/Qwen2.5-VL-7B-Instruct --local-dir ./ckpts/text_encoder/llm
 hf download google/byt5-small --local-dir ./ckpts/text_encoder/byt5-small
 modelscope download --model AI-ModelScope/Glyph-SDXL-v2 --local_dir ./ckpts/text_encoder/Glyph-SDXL-v2
 hf download black-forest-labs/FLUX.1-Redux-dev --local-dir ./ckpts/vision_encoder/siglip
-hf download lyneeeeeeeee/FrameForge pytorch_lora_weights.safetensors --local-dir ./checkpoints</code></pre></div></div></details>
+hf download FrameX-AI/FrameForge pytorch_lora_weights.safetensors --local-dir ./checkpoints</code></pre></div></div></details>
         <div class="inference-header"><h3>Run inference</h3><a href="https://github.com/FrameX-AI/FrameForge#inference" target="_blank" rel="noopener noreferrer">Full instructions ↗</a></div><p class="inference-note">Run from the repository root. Replace the input path and prompt. Prepare reference and condition images at <strong>512 × 512</strong>; the generated output is also <strong>512 × 512</strong>.</p>
         <div class="code-selector" role="group" aria-label="Inference task"><button data-command="subject" aria-pressed="true">Subject</button><button data-command="canny" aria-pressed="false">Canny</button><button data-command="editing" aria-pressed="false">Editing</button></div><div class="code-block inference-code"><div class="code-label">bash <span>·</span> <span id="guidance-note">Guidance scale 6.0 (default)</span></div><button class="copy-button" data-copy="inference-command" aria-label="Copy inference command">Copy</button><pre><code id="inference-command">CUDA_VISIBLE_DEVICES=0 MODEL_PATH=./ckpts bash scripts/infer.sh \
   --lora_path ./checkpoints/pytorch_lora_weights.safetensors \
